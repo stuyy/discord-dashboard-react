@@ -1,16 +1,15 @@
+import { getIconURL } from '../utils/helpers';
 import { GuildMenuItemStyle } from '../utils/styles';
+import { PartialGuild } from '../utils/types';
 
 type Props = {
-  guild: {
-    id: string;
-    name: string;
-    icon: string;
-  };
+  guild: PartialGuild;
 };
+
 export const GuildMenuItem = ({ guild }: Props) => (
   <GuildMenuItemStyle>
     <img
-      src={guild.icon}
+      src={getIconURL(guild)}
       alt={guild.name}
       width={40}
       height={40}

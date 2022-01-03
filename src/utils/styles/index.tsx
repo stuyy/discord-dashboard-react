@@ -153,3 +153,15 @@ export const Select = styled.select`
     background-color: #292929;
   }
 `;
+
+export const Overlay = styled.div`
+  height: 100%;
+  width: 100%;
+  background-color: #0000006c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+`;

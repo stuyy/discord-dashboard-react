@@ -1,11 +1,11 @@
 import { createContext } from 'react';
+import { PartialGuild } from '../types';
 
 type GuildContextType = {
-  guildId: string;
-  updateGuildId: (id: string) => void;
+  guild?: PartialGuild;
+  updateGuild: (guild: PartialGuild) => void;
 };
 
 export const GuildContext = createContext<GuildContextType>({
-  guildId: '',
-  updateGuildId: () => {},
+  updateGuild: () => {},
 });

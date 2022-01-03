@@ -12,7 +12,7 @@ import { IoSettingsOutline, IoNewspaperOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
 export const CategoryPage = () => {
-  const { guildId } = useContext(GuildContext);
+  const { guild } = useContext(GuildContext);
   const navigate = useNavigate();
 
   return (
