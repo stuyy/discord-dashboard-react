@@ -21,3 +21,15 @@ export const updateGuildPrefix = (guildId: string, prefix: string) =>
     },
     CONFIG
   );
+
+export const getGuildChannels = (guildId: string) =>
+  axios.get(`${API_URL}/discord/guilds/${guildId}/channels`, CONFIG);
+
+export const updateWelcomeChannelId = (guildId: string, channelId: string) =>
+  axios.post(
+    `${API_URL}/guilds/${guildId}/config/welcome`,
+    {
+      channelId,
+    },
+    CONFIG
+  );
