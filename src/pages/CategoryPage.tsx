@@ -20,6 +20,17 @@ export const CategoryPage = () => {
       <Container>
         <div>
           <Flex alignItems="center" justifyContent="space-between">
+            <Title>Guild Information</Title>
+            <IoSettingsOutline size={40} />
+          </Flex>
+          <Grid>
+            <TextButton onClick={() => navigate('/dashboard/analytics')}>
+              Analytics
+            </TextButton>
+          </Grid>
+        </div>
+        <div style={{ borderTop: '1px solid #ffffff1b', marginTop: '30px' }}>
+          <Flex alignItems="center" justifyContent="space-between">
             <Title>Basic Configurations</Title>
             <IoSettingsOutline size={40} />
           </Flex>

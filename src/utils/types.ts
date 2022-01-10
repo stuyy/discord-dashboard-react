@@ -33,3 +33,12 @@ export type PartialGuildChannel = {
   rate_limit_per_user: string;
   banner?: string;
 };
+
+export type GuildBanLogsType = {
+  id: number;
+  guildId: string;
+  bannedMemberId: string;
+  issuedBy: string;
+  issuedOn: Date;
+  reason?: string;
+};
