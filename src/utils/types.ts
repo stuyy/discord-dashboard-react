@@ -34,11 +34,14 @@ export type PartialGuildChannel = {
   banner?: string;
 };
 
-export type GuildBanLogsType = {
+export type ModerationActionType = 'ban' | 'kick' | 'timeout';
+
+export type GuildModLogType = {
   id: number;
   guildId: string;
-  bannedMemberId: string;
+  memberId: string;
   issuedBy: string;
   issuedOn: Date;
   reason?: string;
+  type: ModerationActionType;
 };

@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { GuildBanLogsType, GuildConfigType, PartialGuild, User } from './types';
+import { GuildModLogType, GuildConfigType, PartialGuild, User } from './types';
 
 const CONFIG: AxiosRequestConfig = { withCredentials: true };
 const API_URL = 'http://localhost:3001/api';
@@ -35,7 +35,13 @@ export const updateWelcomeChannelId = (guildId: string, channelId: string) =>
   );
 
 export const getGuildBanLogs = (guildId: string, fromDate: string) =>
-  axios.get<GuildBanLogsType[]>(
+  axios.get<GuildModLogType[]>(
     `${API_URL}/guilds/${guildId}/bans?fromDate=${fromDate}`,
+    CONFIG
+  );
+
+export const getGuildModLogs = (guildId: string, fromDate: string) =>
+  axios.get<GuildModLogType[]>(
+    `${API_URL}/guilds/${guildId}/logs?fromDate=${fromDate}`,
     CONFIG
   );
