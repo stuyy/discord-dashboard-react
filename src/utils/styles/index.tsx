@@ -165,3 +165,48 @@ export const Overlay = styled.div`
   top: 0;
   left: 0;
 `;
+
+export const UserBanCard = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ffffff1f;
+  box-sizing: border-box;
+  padding: 18px;
+  border-radius: 4px;
+`;
+
+type ContextMenuContainerProps = {
+  top: number;
+  left: number;
+};
+
+export const ContextMenuContainer = styled.div<ContextMenuContainerProps>`
+  position: absolute;
+  background-color: #353535;
+  border-radius: 3px;
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.15);
+  height: auto;
+  width: 200px;
+  box-sizing: border-box;
+  ${({ top, left }) => css`
+    top: ${top}px;
+    left: ${left}px;
+  `}
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  ul li {
+    padding: 10px 14px;
+    border-radius: 3px;
+  }
+
+  ul li:hover {
+    background-color: #444444;
+    cursor: pointer;
+  }
+`;

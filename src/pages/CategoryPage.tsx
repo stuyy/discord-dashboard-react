@@ -8,7 +8,11 @@ import {
   TextButton,
   Title,
 } from '../utils/styles';
-import { IoSettingsOutline, IoNewspaperOutline } from 'react-icons/io5';
+import {
+  IoSettingsOutline,
+  IoNewspaperOutline,
+  IoInformationCircleOutline,
+} from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
 export const CategoryPage = () => {
@@ -21,11 +25,14 @@ export const CategoryPage = () => {
         <div>
           <Flex alignItems="center" justifyContent="space-between">
             <Title>Guild Information</Title>
-            <IoSettingsOutline size={40} />
+            <IoInformationCircleOutline size={40} />
           </Flex>
           <Grid>
             <TextButton onClick={() => navigate('/dashboard/analytics')}>
               Analytics
+            </TextButton>
+            <TextButton onClick={() => navigate('/dashboard/bans')}>
+              Guild Bans
             </TextButton>
           </Grid>
         </div>

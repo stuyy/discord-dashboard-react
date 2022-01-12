@@ -1,5 +1,11 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { GuildModLogType, GuildConfigType, PartialGuild, User } from './types';
+import {
+  GuildModLogType,
+  GuildConfigType,
+  PartialGuild,
+  User,
+  GuildBanType,
+} from './types';
 
 const CONFIG: AxiosRequestConfig = { withCredentials: true };
 const API_URL = 'http://localhost:3001/api';
@@ -45,3 +51,12 @@ export const getGuildModLogs = (guildId: string, fromDate: string) =>
     `${API_URL}/guilds/${guildId}/logs?fromDate=${fromDate}`,
     CONFIG
   );
+
+export const getGuildBans = (guildId: string) =>
+  axios.get<GuildBanType[]>(
+    `${API_URL}/discord/guilds/${guildId}/bans`,
+    CONFIG
+  );
+
+export const deleteGuildBan = (guildId: string, userId: string) =>
+  axios.delete(`${API_URL}/discord/guilds/${guildId}/bans/${userId}`, CONFIG);
