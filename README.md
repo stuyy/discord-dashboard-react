@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+# Discord Bot Dashboard (2022)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Discord Bot Dashboard written in React. You might also want to take a look at the API and Discord Bot, the repositories can be found here:
 
-## Available Scripts
+- [Dashboard NestJS API](https://github.com/stuyy/discord-dashboard-api)
+- [Discord Bot](https://github.com/stuyy/discord-dashboard-bot)
 
-In the project directory, you can run:
+Please do note all code provided in these projects are NOT for production use. They are only for eductional purposes only. These repositories are only a supplement to the new Discord Bot Dashboard Tutorial Series on my YouTube channel, which you can find [here](https://youtube.com/ansonthedeveloper). You can find the playlist with all episodes [here](https://www.youtube.com/playlist?list=PL_cUvD4qzbkyX4Wp8TAfjpttjUldDWJnp).
 
-### `yarn start`
+For any further questions, you may raise an issue or contact me on Discord here: https://discord.gg/3S68xJnqZt
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Instructions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To setup this project, all you need to do is clone the repository.
 
-### `yarn test`
+1. Clone using SSH or HTTPS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    `git clone git@github.com:stuyy/discord-dashboard-react.git`
 
-### `yarn build`
+The package manager I used for this project, and use generally, is `yarn`. You may use `npm` if you wish however if you run into any issues with installing dependencies or building, consider switching to `yarn`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. `cd` into the cloned project, and then install dependencies using `npm install` or `yarn install`. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Run `npm start` or `yarn start`, this should start the project on `http://localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+In order to have the app fully working, you must have the NestJS API setup locally as well. Please visit the [Dashboard NestJS API](https://github.com/stuyy/discord-dashboard-api) project repository and go through the README for instructions on how to setup the Nest API for the dashboard.
