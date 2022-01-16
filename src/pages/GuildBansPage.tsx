@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { io } from 'socket.io-client';
 import { MoonLoader } from 'react-spinners';
 import { GuildContext } from '../utils/contexts/GuildContext';
 import { useFetchGuildBans } from '../utils/hooks/useFetchGuildBans';
@@ -29,6 +30,23 @@ export const GuildBansPage = () => {
     window.addEventListener('click', handleClick);
     return () => window.removeEventListener('click', handleClick);
   }, []);
+
+  useEffect(() => {
+    console.log('Websocket useEffect');
+    const socket = io('http://localhost:3001');
+    socket.on('guildBanAdd', (data) => {
+      console.log(data);
+      setUpdating(!updating);
+    });
+    socket.on('guildBanRemove', (data) => {
+      console.log(data);
+      setUpdating(!updating);
+    });
+    return () => {
+      console.log('Close Websocket Connection');
+      socket.close();
+    };
+  }, [updating]);
 
   const handleUnban = async () => {
     if (!selectedBan) {
