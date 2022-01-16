@@ -16,7 +16,7 @@ import { deleteGuildBan } from '../utils/api';
 export const GuildBansPage = () => {
   const { guild } = useContext(GuildContext);
   const guildId = (guild && guild.id) || '';
-  const { bans, loading, error } = useFetchGuildBans(guildId);
+  const { bans, loading, updating, setUpdating } = useFetchGuildBans(guildId);
   const [showMenu, setShowMenu] = useState(false);
   const [points, setPoints] = useState({ x: 0, y: 0 });
   const [selectedBan, setSelectedBan] = useState<GuildBanType>();
@@ -38,6 +38,7 @@ export const GuildBansPage = () => {
     try {
       console.log(`Unbanning User: ${selectedBan?.user.username}`);
       await deleteGuildBan(guildId, selectedBan.user.id);
+      setUpdating(!updating);
     } catch (err) {
       console.log(err);
     }
@@ -46,8 +47,7 @@ export const GuildBansPage = () => {
   return (
     <Page>
       <Container>
-        {selectedBan && selectedBan.user.username}
-        {bans && !loading ? (
+        {!loading ? (
           <div
             style={{
               display: 'grid',
@@ -55,28 +55,34 @@ export const GuildBansPage = () => {
               gap: '18px',
             }}
           >
-            {bans.map((ban) => (
-              <UserBanCard
-                onContextMenu={(e) => {
-                  console.log('Context Menu Opened');
-                  e.preventDefault();
-                  setShowMenu(true);
-                  setPoints({ x: e.pageX, y: e.pageY });
-                  setSelectedBan(ban);
-                }}
-              >
-                <div>
-                  {ban.user.username}#{ban.user.discriminator}
-                </div>
-                <img
-                  src={ban.user.avatar ? getAvatarUrl(ban.user) : DefaultAvatar}
-                  alt="avatar"
-                  width={100}
-                  height={100}
-                  style={{ borderRadius: '4px' }}
-                />
-              </UserBanCard>
-            ))}
+            {bans.length ? (
+              bans.map((ban) => (
+                <UserBanCard
+                  onContextMenu={(e) => {
+                    console.log('Context Menu Opened');
+                    e.preventDefault();
+                    setShowMenu(true);
+                    setPoints({ x: e.pageX, y: e.pageY });
+                    setSelectedBan(ban);
+                  }}
+                >
+                  <div>
+                    {ban.user.username}#{ban.user.discriminator}
+                  </div>
+                  <img
+                    src={
+                      ban.user.avatar ? getAvatarUrl(ban.user) : DefaultAvatar
+                    }
+                    alt="avatar"
+                    width={100}
+                    height={100}
+                    style={{ borderRadius: '4px' }}
+                  />
+                </UserBanCard>
+              ))
+            ) : (
+              <div>No Bans</div>
+            )}
             {showMenu && (
               <ContextMenuContainer top={points.y} left={points.x}>
                 <ul>
